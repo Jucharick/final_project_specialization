@@ -1,0 +1,366 @@
+yuliachar@Virtual-linux:~$ cd GB
+
+yuliachar@Virtual-linux:~/GB$ cat > pets.txt
+
+cat
+
+dog
+
+hamster  
+
+cat-2
+
+cat-3
+
+yuliachar@Virtual-linux:~/GB$ cat pets.txt
+
+cat
+
+dog
+
+hamster  
+
+cat-2
+
+cat-3
+
+yuliachar@Virtual-linux:~/GB$ cat > pack.txt
+
+donkey
+
+camel
+
+horse
+
+yuliachar@Virtual-linux:~/GB$ cat pack.txt
+
+donkey
+
+camel
+
+horse
+
+yuliachar@Virtual-linux:~/GB$ mv pack.txt human_friends.txt
+
+yuliachar@Virtual-linux:~/GB$ ll
+
+yuliachar@Virtual-linux:~/GB$ ll
+
+drwxrwxr-x  3 yuliachar yuliachar 4096 июл 29 14:51 ./
+
+drwxr-x--- 22 yuliachar yuliachar 4096 июл 29 13:36 ../
+
+-rw-rw-r--  1 yuliachar yuliachar   19 июл 29 14:48 human_friends.txt
+
+drwxrwxr-x  3 yuliachar yuliachar 4096 июл 29 13:44 mariadb/
+
+-rw-rw-r--  1 yuliachar yuliachar   30 июл 29 14:46 pets.txt
+
+yuliachar@Virtual-linux:~/GB$ mkdir animals
+
+yuliachar@Virtual-linux:~/GB$ ll
+
+drwxrwxr-x  4 yuliachar yuliachar 4096 июл 29 14:54 ./
+
+drwxr-x--- 22 yuliachar yuliachar 4096 июл 29 13:36 ../
+
+drwxrwxr-x  2 yuliachar yuliachar 4096 июл 29 14:54 animals/
+
+-rw-rw-r--  1 yuliachar yuliachar   19 июл 29 14:48 human_friends.txt
+
+drwxrwxr-x  3 yuliachar yuliachar 4096 июл 29 13:44 mariadb/
+
+-rw-rw-r--  1 yuliachar yuliachar   30 июл 29 14:46 pets.txt
+
+yuliachar@Virtual-linux:~/GB$ mv pets.txt animals/
+
+yuliachar@Virtual-linux:~/GB$ mv human_friends.txt animals/
+
+yuliachar@Virtual-linux:~/GB$ ll
+
+drwxrwxr-x  4 yuliachar yuliachar 4096 июл 29 14:55 ./
+
+drwxr-x--- 22 yuliachar yuliachar 4096 июл 29 13:36 ../
+
+drwxrwxr-x  2 yuliachar yuliachar 4096 июл 29 14:55 animals/
+
+drwxrwxr-x  3 yuliachar yuliachar 4096 июл 29 13:44 mariadb/
+
+yuliachar@Virtual-linux:~/GB$ cd animals
+
+yuliachar@Virtual-linux:~/GB/animals$ ll
+
+drwxrwxr-x 2 yuliachar yuliachar 4096 июл 29 14:55 ./
+
+drwxrwxr-x 4 yuliachar yuliachar 4096 июл 29 14:55 ../
+
+-rw-rw-r-- 1 yuliachar yuliachar   19 июл 29 14:48 human_friends.txt
+
+-rw-rw-r-- 1 yuliachar yuliachar   30 июл 29 14:46 pets.txt
+
+yuliachar@Virtual-linux:~/GB/animals$ 
+
+
+
+
+
+yuliachar@Virtual-linux:~$ sudo apt update
+
+[sudo] пароль для yuliachar: 
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]                                                                             
+
+Пол:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]                                                                              
+
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]                                                                           
+
+Сущ:5 https://download.virtualbox.org/virtualbox/debian jammy InRelease                                                            
+
+Пол:6 https://download.docker.com/linux/ubuntu jammy InRelease [48,9 kB]                                       
+
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [456 kB]
+
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [855 kB]
+
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [209 kB]
+
+Пол:10 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [99,9 kB]
+
+Пол:11 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [15,4 kB]
+
+Пол:12 http://ru.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [668 kB]
+
+Пол:13 http://ru.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [106 kB]
+
+Пол:14 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [646 kB]
+
+Пол:15 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [961 kB]
+
+Пол:16 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [207 kB]
+
+Пол:17 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [278 kB]
+
+Пол:18 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe DEP-11 48x48 Icons [190 kB]
+
+Пол:19 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe DEP-11 64x64 Icons [291 kB]
+
+Пол:20 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [21,4 kB]
+
+Пол:21 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [9 768 B]
+
+Пол:22 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+
+Пол:23 http://ru.archive.ubuntu.com/ubuntu jammy-backports/main amd64 DEP-11 Metadata [7 980 B]
+
+Пол:24 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [22,2 kB]
+
+Пол:25 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe i386 Packages [12,8 kB]
+
+Пол:26 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [15,5 kB]
+
+Пол:27 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe DEP-11 64x64 Icons [22,2 kB]
+
+Пол:28 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [580 B]
+
+Пол:29 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [634 kB]
+
+Пол:30 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [21,2 kB]
+
+Пол:31 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [278 kB]
+
+Пол:32 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [149 kB]
+
+Пол:33 http://security.ubuntu.com/ubuntu jammy-security/main amd64 DEP-11 Metadata [41,5 kB]
+
+Пол:34 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [11,0 kB]
+
+Пол:35 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [656 kB]
+
+Пол:36 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [104 kB]
+
+Пол:37 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [764 kB]
+
+Пол:38 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [551 kB]
+
+Пол:39 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [137 kB]
+
+Пол:40 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 DEP-11 Metadata [21,9 kB]
+
+Пол:41 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [16,3 kB]
+
+Получено 8 867 kB за 6с (1 537 kB/s)                             
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Может быть обновлено 128 пакетов. Запустите «apt list --upgradable» для их показа.
+
+yuliachar@Virtual-linux:~$ sudo apt install mysql-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  python3-attr python3-docker python3-dockerpty python3-docopt python3-dotenv python3-jsonschema python3-pyrsistent python3-texttable python3-websocket ubuntu-fan
+
+Для их удаления используйте «sudo apt autoremove».
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  mysql-server
+
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 128 пакетов не обновлено.
+
+Необходимо скачать 9 450 B архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 35,8 kB.
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 mysql-server all 8.0.33-0ubuntu0.22.04.4 [9 450 B]
+
+Получено 9 450 B за 0с (94,1 kB/s)          
+
+Выбор ранее не выбранного пакета mysql-server.
+
+(Чтение базы данных … на данный момент установлено 193289 файлов и каталогов.)
+
+Подготовка к распаковке …/mysql-server_8.0.33-0ubuntu0.22.04.4_all.deb …
+
+Распаковывается mysql-server (8.0.33-0ubuntu0.22.04.4) …
+
+Настраивается пакет mysql-server (8.0.33-0ubuntu0.22.04.4) …
+
+yuliachar@Virtual-linux:~$ sudo service mysql stop
+
+1
+
+
+
+yuliachar@Virtual-linux:~$ sudo apt remove mysql-server
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  python3-attr python3-docker python3-dockerpty python3-docopt python3-dotenv python3-jsonschema python3-pyrsistent python3-texttable python3-websocket ubuntu-fan
+
+Для их удаления используйте «sudo apt autoremove».
+
+Следующие пакеты будут УДАЛЕНЫ:
+
+  mysql-server
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 1 пакетов, и 128 пакетов не обновлено.
+
+После данной операции объём занятого дискового пространства уменьшится на 35,8 kB.
+
+Хотите продолжить? [Д/н] y
+
+(Чтение базы данных … на данный момент установлен 193291 файл и каталог.)
+
+Удаляется mysql-server (8.0.33-0ubuntu0.22.04.4) …
+
+yuliachar@Virtual-linux:~$ 
+
+
+
+
+
+yuliachar@Virtual-linux:~$ sudo apt download nginx
+
+yuliachar@Virtual-linux:~$ ls
+
+ all.txt      even             ls_txt        mydb      nginx_1.18.0-6ubuntu14.4_amd64.deb   std.txt       test_ln_dir   test.txt.bak   Видео       Изображения    'Рабочий стол'
+
+ Dockerfile   GB               lws           mydb-2    shared                               test3         testscript    user_com       Документы   Музыка          Шаблоны
+
+ err.txt      iptables.rules   mariadb.cnf   newroot   snap                                 test_GB.txt   test.txt      while_100      Загрузки    Общедоступные
+
+yuliachar@Virtual-linux:~$ sudo dpkg -i nginx_1.18.0-6ubuntu14.4_amd64.deb
+
+Выбор ранее не выбранного пакета nginx.
+
+(Чтение базы данных … на данный момент установлено 193286 файлов и каталогов.)
+
+Подготовка к распаковке nginx_1.18.0-6ubuntu14.4_amd64.deb …
+
+Распаковывается nginx (1.18.0-6ubuntu14.4) …
+
+dpkg: зависимости пакетов не позволяют настроить пакет nginx:
+
+ nginx зависит от nginx-core (>= 1.18.0-6ubuntu14.4) | nginx-full (>= 1.18.0-6ubuntu14.4) | nginx-light (>= 1.18.0-6ubuntu14.4) | nginx-extras (>= 1.18.0-6ubuntu14.4), однако:
+
+  Версия nginx-core в системе — 1.18.0-6ubuntu14.3.
+
+  Пакет nginx-full не установлен.
+
+  Пакет nginx-light не установлен.
+
+  Пакет nginx-extras не установлен.
+
+
+
+dpkg: ошибка при обработке пакета nginx (--install):
+
+ проблемы зависимостей — оставляем не настроенным
+
+При обработке следующих пакетов произошли ошибки:
+
+ nginx
+
+yuliachar@Virtual-linux:~$ dpkg -l nginx
+
+Желаемый=неизвестно[u]/установить[i]/удалить[r]/вычистить[p]/зафиксировать[h]
+
+| Состояние=не[n]/установлен[i]/настроен[c]/распакован[U]/частично настроен[F]/
+
+            частично установлен[H]/trig-aWait/Trig-pend
+
+|/ Ошибка?=(нет)/требуется переустановка[R] (верхний регистр
+
+в полях состояния и ошибки указывает на ненормальную ситуацию)
+
+||/ Имя            Версия             Архитектура  Описание
+
++++-==============-==================-============-==========================================
+
+iU  nginx          1.18.0-6ubuntu14.4 amd64        small, powerful, scalable web/proxy server
+
+yuliachar@Virtual-linux:~$ sudo dpkg -r nginx
+
+(Чтение базы данных … на данный момент установлено 193289 файлов и каталогов.)
+
+Удаляется nginx (1.18.0-6ubuntu14.4) …
+
+yuliachar@Virtual-linux:~$ dpkg -l nginx
+
+Желаемый=неизвестно[u]/установить[i]/удалить[r]/вычистить[p]/зафиксировать[h]
+
+| Состояние=не[n]/установлен[i]/настроен[c]/распакован[U]/частично настроен[F]/
+
+            частично установлен[H]/trig-aWait/Trig-pend
+
+|/ Ошибка?=(нет)/требуется переустановка[R] (верхний регистр
+
+в полях состояния и ошибки указывает на ненормальную ситуацию)
+
+||/ Имя            Версия       Архитектура  Описание
+
++++-==============-============-============-=======================================
+
+un  nginx          <нет>        <нет>        (описание недоступно)
+
+yuliachar@Virtual-linux:~$ 
+
