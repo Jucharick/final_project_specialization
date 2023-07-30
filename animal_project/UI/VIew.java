@@ -139,6 +139,7 @@ public class VIew {
         String userAnswer = in.next();
         if (userAnswer.toLowerCase().equals("y")) {
           allAnimals.remove(i);
+          System.out.println("Животнное удалено успешно.");
         }
       }
     }
