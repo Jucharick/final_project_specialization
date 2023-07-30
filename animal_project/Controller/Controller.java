@@ -12,8 +12,8 @@ import animal_project.Model.PetСounter;
 
 public class Controller {
 
-  public static PetAnimal createPet (String petType, String nickname, String dateBirth, String color, List<String> commands) {
-    if (!nickname.isEmpty() && !dateBirth.isEmpty() && !color.isEmpty()) {
+  public static PetAnimal createPet (String petType, String nickname, String dateBirth, String color, List<String> commands) throws UserInputException{
+    if (!nickname.isEmpty() && !dateBirth.isEmpty() && validBirth(dateBirth) && !color.isEmpty()) {
       try (PetСounter counter = new PetСounter()) {
         counter.add(); 
         switch (petType) {
@@ -38,6 +38,26 @@ public class Controller {
     return null;
   }
 
+  private static boolean validBirth (String dateBirth) throws UserInputException{
+    Boolean flag = false;
+    if (dateBirth.length() == 10) {
+      for (int i = 0; i < dateBirth.length(); i++) {
+        if (i == 2 || i == 5) {
+          i++;
+        }
+        if (Character.isDigit(dateBirth.charAt(i))){
+          flag = true;
+        } else {
+          throw new UserInputException("Тип данных не соответствует - дата рождения содержит символы, отличные от цифр.");
+        }
+      }
+    } else {
+      System.out.println("Дата должна быть в формате дд.мм.гггг. Животное не добавлено.");
+    }
+
+    return flag;
+  }
+
   // запись в файл 
   public static void put(PetAnimal animal) {
     FileWriter file = null;
@@ -57,5 +77,11 @@ public class Controller {
     }
   }
 
+}
+
+class UserInputException extends Exception {
+  public UserInputException(String message) {
+    super(message);
+  }
 }
 

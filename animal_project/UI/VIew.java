@@ -40,10 +40,12 @@ public class VIew {
             if (!petType.isEmpty() && !nickname.isEmpty() && !dateBirth.isEmpty()) {
               try(PetСounter counter = new PetСounter()){
                 PetAnimal newAnimal = Controller.createPet(petType, nickname, dateBirth, color, commands);
-                allAnimals.add(newAnimal);
-                counter.add();
-                System.out.println("Животное добавлено");
-              } catch (Exception e) {
+                if (newAnimal!=null) {
+                  allAnimals.add(newAnimal);
+                  counter.add();
+                  System.out.println("Животное добавлено");
+                }
+              } catch(Exception e) {
                 System.out.println("Ошибка при добавлении животного." + e);
               }
             } else {
