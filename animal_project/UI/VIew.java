@@ -1,15 +1,18 @@
 package animal_project.UI;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import animal_project.Controller.Controller;
+import animal_project.Model.PetAnimal;
 import animal_project.Model.PetСounter;
 
 public class VIew {
-
+  private List<PetAnimal> allAnimals = new ArrayList<PetAnimal>();
   public void Menu() {
+    
     boolean flag = true;
     try (Scanner in = new Scanner(System.in, "UTF-8")) {
       while (flag) {
@@ -36,11 +39,12 @@ public class VIew {
             }
             if (!petType.isEmpty() && !nickname.isEmpty() && !dateBirth.isEmpty()) {
               try(PetСounter counter = new PetСounter()){
-                Controller.put(Controller.createPet(petType, nickname, dateBirth, color, commands));
+                PetAnimal newAnimal = Controller.createPet(petType, nickname, dateBirth, color, commands);
+                allAnimals.add(newAnimal);
                 counter.add();
                 System.out.println("Животное добавлено");
               } catch (Exception e) {
-                System.out.println("Ошибка при добавлении животного.");
+                System.out.println("Ошибка при добавлении животного." + e);
               }
             } else {
               System.out.println("Не все обязательные поля заполнены. Животное не добавлено в реестр.");
@@ -48,15 +52,30 @@ public class VIew {
             break;
           case "2":
             // 2 - Список команд, которые выполняет животное
+            PetAnimal find = findPet(in);
+            System.out.println("Животное выполняет следующие команды: " + find.getCommands().toString());
             break;
           case "3":
             // 3 - Добавить новую команду
+            PetAnimal findPetToUpd = findPet(in);
+            PetAnimal updPet = addNewComand(in,findPetToUpd);
+            System.out.println("Команда добавлена.");
+            System.out.println("Животное выполняет следующие команды: " + updPet.getCommands().toString());
             break;
           case "4":
             // 4 - Удалить запись о животном
+            try {
+              delPet(in);
+            } catch (Exception e) {
+              System.err.println("Ошибка: " + e);
+            }
             break;
           case "5":
             // 5 - Выход
+            for (int i = 0; i < allAnimals.size(); i++) {
+              Controller.put(allAnimals.get(i));
+            }
+            System.out.println("Изменения сохранены в реестр.");
             flag = false;
             break;
           default:
@@ -86,5 +105,42 @@ public class VIew {
     }
   }
 
+  public PetAnimal findPet(Scanner in) {
+    System.out.print("Введите имя животного: ");
+    String nickname = in.next();
+    for (int i = 0; i < allAnimals.size(); i++) {
+      if (allAnimals.get(i).getNickname().equals(nickname)) {
+        System.out.println("Найдено животное: " );
+        allAnimals.get(i).getInfo();
+        return allAnimals.get(i);
+      }
+    } 
+    System.out.println("Такого животного нет.");
+    return null;
+  }
 
+  public PetAnimal addNewComand (Scanner in, PetAnimal pet) {
+    System.out.print("Введите новую команду: ");
+    String newComand = in.next();
+    List<String> command = pet.getCommands();
+    command.add(newComand);
+    pet.setCommands(command);
+    return pet;
+  }
+
+  public void delPet (Scanner in) {
+    System.out.print("Введите имя животного для удаления: ");
+    String nickname = in.next();
+    for (int i = 0; i < allAnimals.size(); i++) {
+      if (allAnimals.get(i).getNickname().equals(nickname)) {
+        System.out.println("Найдено животное: " );
+        allAnimals.get(i).getInfo();
+        System.out.println("Вы уверены что хотите удалить? y/n");
+        String userAnswer = in.next();
+        if (userAnswer.toLowerCase().equals("y")) {
+          allAnimals.remove(i);
+        }
+      }
+    }
+  }
 }

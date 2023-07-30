@@ -41,15 +41,19 @@ public abstract class PetAnimal implements Interface {
     return commands;
   }
 
+  public void setCommands(List<String> commands) {
+    this.commands = commands;
+  }
+
   @Override
     public void getInfo() {
-        System.out.printf("Type: %s Nickname: %s Birth: %s Color: %s Commands: %l  \n",
-                          this.type, this.nickname, this.dateBirth, this.color, this.commands);
+        System.out.printf("Type: %s Nickname: %s Birth: %s Color: %s Commands: %s\n",
+                          this.type, this.nickname, this.dateBirth, this.color, this.commands.toString());
     }
 
   @Override
     public String getStr() {
-        return String.format("Type: %s Nickname: %s Birth: %s Color: %s Commands: \n",
-                          this.type, this.nickname, this.dateBirth, this.color);
+        return String.format("Type: %s Nickname: %s Birth: %s Color: %s Commands: %s\n",
+                          this.type, this.nickname, this.dateBirth, this.color, this.commands.toString());
     }
 }

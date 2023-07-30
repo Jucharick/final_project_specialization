@@ -2,7 +2,6 @@ package animal_project.Controller;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import animal_project.Model.Cat;
@@ -10,45 +9,41 @@ import animal_project.Model.Dog;
 import animal_project.Model.Hamster;
 import animal_project.Model.PetAnimal;
 import animal_project.Model.PetСounter;
-import animal_project.UI.VIew;
 
 public class Controller {
 
-  public static String createPet (String petType, String nickname, String dateBirth, String color, List<String> commands) {
+  public static PetAnimal createPet (String petType, String nickname, String dateBirth, String color, List<String> commands) {
     if (!nickname.isEmpty() && !dateBirth.isEmpty() && !color.isEmpty()) {
       try (PetСounter counter = new PetСounter()) {
         counter.add(); 
         switch (petType) {
           case "Cat":
             Cat newCat = new Cat(petType, nickname, dateBirth, color, commands);
-            String strCat = newCat.getStr();
-            return strCat;
+            return newCat;
           case "Dog":
             Dog newDog = new Dog(petType, nickname, dateBirth, color, commands);
-            String strDog = newDog.getStr();
-            return strDog;
+            return newDog;
           case "Hamster":
             Hamster newHamster = new Hamster(petType, nickname, dateBirth, color, commands);
-            String strHam = newHamster.getStr();
-            return strHam;
+            return newHamster;
           default:
             System.out.println("Введено некоррекное значение");
-            return "";
+            return null;
         }
       }
       catch (IOException e) {
           System.out.printf("Ошибка: %s", e.getMessage());
       }
     }
-    return "";
+    return null;
   }
 
   // запись в файл 
-  public static void put(String str) {
+  public static void put(PetAnimal animal) {
     FileWriter file = null;
     try {
       file = new FileWriter("animal_project/registry.txt", true);
-      file.append(str);
+      file.append(animal.getStr());
     } catch (IOException ex) {
       System.err.println("Ошибка: " + ex);
     } finally {
@@ -61,5 +56,6 @@ public class Controller {
       }
     }
   }
+
 }
 

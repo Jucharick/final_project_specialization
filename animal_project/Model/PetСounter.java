@@ -1,6 +1,5 @@
 package animal_project.Model;
 
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class PetСounter implements AutoCloseable {
@@ -27,7 +26,6 @@ public class PetСounter implements AutoCloseable {
   public void close() throws IOException {
     if (!isClose) {
       isClose = true;
-      //System.out.println("Значение счетчика: " + counter);
     } else {
       throw new IllegalStateException("Счетчик закрыт.");
     }
