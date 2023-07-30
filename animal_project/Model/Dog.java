@@ -1,10 +1,11 @@
 package animal_project.Model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Dog extends PetAnimal{
-  public Dog(String type) {
-    super("Dog", "", "", "", new ArrayList<>());
+
+  public Dog(String type, String nickname, String dateBirth, String color, List<String> commands) {
+    super("Dog", nickname, dateBirth, color, commands);
   }
 
   @Override

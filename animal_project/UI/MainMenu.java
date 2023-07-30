@@ -1,20 +1,20 @@
 package animal_project.UI;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-
-import org.w3c.dom.css.Counter;
 
 import animal_project.Controller.Controller;
 import animal_project.Model.Cat;
 import animal_project.Model.PetAnimal;
-import animal_project.Model.Сounter;
+import animal_project.Model.PetСounter;
 
 public class MainMenu {
 
   public void Menu() {
     int count = 0;
     boolean flag = true;
-    try (Scanner in = new Scanner(System.in)) {
+    try (Scanner in = new Scanner(System.in, "UTF-8")) {
       while (flag) {
         System.out.println("\n1 - Завести новое животное\n2 - Список команд, которые выполняет животное\n3 - Добавить новую команду\n4 - Удалить запись о животном\n5 - Выход");
         String key = in.next();
@@ -22,13 +22,27 @@ public class MainMenu {
           case "1":
             // 1 - Завести новое животное
             String petType = choicePetType(in);
+            System.out.println("Введите имя животного: ");
+            String nickname = in.nextLine();
+            System.out.println("Дату рождения животного в формате (дд.мм.гггг): ");
+            String dateBirth = in.nextLine();
+            System.out.println("Введите окрас животного: ");
+            String color  = in.nextLine();
+            System.out.println("Введите комманды, которые знает животное (через запятую): ");
+            String comandString  = in.nextLine();
+            String  delimeter = "\\,"; // Разделитель
+            String[] subStr = comandString.split(delimeter);
+            List<String> commands  = new ArrayList<>();
+            for (int i = 0; i < subStr.length; i++) {
+              commands.add(subStr[i]);
+            }
             if (petType != null) {
               try {
-                Controller.createPet(petType);
-                count = Counter.add();
+                Controller.createPet(petType, nickname, dateBirth, color, commands);
+                // count = PetСounter.add();
                 System.out.println("ОК");
-              } catch (UncorrectDataException e) {
-                  System.out.println(e.getMessage());
+              } catch (Exception e) {
+                  System.out.println("Ошибка");
               }
             }
             break;
@@ -70,4 +84,6 @@ public class MainMenu {
       }
     }
   }
+
+
 }
