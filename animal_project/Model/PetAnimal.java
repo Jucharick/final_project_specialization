@@ -46,4 +46,10 @@ public abstract class PetAnimal implements Interface {
         System.out.printf("Type: %s Nickname: %s Birth: %s Color: %s Commands: %l  \n",
                           this.type, this.nickname, this.dateBirth, this.color, this.commands);
     }
+
+  @Override
+    public String getStr() {
+        return String.format("Type: %s Nickname: %s Birth: %s Color: %s Commands: \n",
+                          this.type, this.nickname, this.dateBirth, this.color);
+    }
 }

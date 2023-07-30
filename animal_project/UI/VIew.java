@@ -5,14 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 
 import animal_project.Controller.Controller;
-import animal_project.Model.Cat;
-import animal_project.Model.PetAnimal;
 import animal_project.Model.PetСounter;
 
-public class MainMenu {
+public class VIew {
 
   public void Menu() {
-    int count = 0;
     boolean flag = true;
     try (Scanner in = new Scanner(System.in, "UTF-8")) {
       while (flag) {
@@ -22,6 +19,7 @@ public class MainMenu {
           case "1":
             // 1 - Завести новое животное
             String petType = choicePetType(in);
+            in.nextLine();
             System.out.println("Введите имя животного: ");
             String nickname = in.nextLine();
             System.out.println("Дату рождения животного в формате (дд.мм.гггг): ");
@@ -36,14 +34,16 @@ public class MainMenu {
             for (int i = 0; i < subStr.length; i++) {
               commands.add(subStr[i]);
             }
-            if (petType != null) {
-              try {
-                Controller.createPet(petType, nickname, dateBirth, color, commands);
-                // count = PetСounter.add();
-                System.out.println("ОК");
+            if (!petType.isEmpty() && !nickname.isEmpty() && !dateBirth.isEmpty()) {
+              try(PetСounter counter = new PetСounter()){
+                Controller.put(Controller.createPet(petType, nickname, dateBirth, color, commands));
+                counter.add();
+                System.out.println("Животное добавлено");
               } catch (Exception e) {
-                  System.out.println("Ошибка");
+                System.out.println("Ошибка при добавлении животного.");
               }
+            } else {
+              System.out.println("Не все обязательные поля заполнены. Животное не добавлено в реестр.");
             }
             break;
           case "2":
@@ -57,6 +57,7 @@ public class MainMenu {
             break;
           case "5":
             // 5 - Выход
+            flag = false;
             break;
           default:
             System.out.println("Вы ввели некорректное значение");
